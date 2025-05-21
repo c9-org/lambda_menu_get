@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM template for Menu->Get service
+
+Resources:
+  TakeawayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: TakeawayApi
+      StageName: Dev
+
+  GetMenuFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: lambda_get_menu
+      Handler: app.lambda_handler
+      Runtime: python3.11
+      CodeUri: src/
+      Role: arn:aws:iam::691685274845:role/LambdaCustomExecutionRole
+      Events:
+        GetMenuApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref TakeawayApi
+            Path: /menu
+            Method: GET
