@@ -1,3 +1,5 @@
 pytest
+pylint
 moto
+boto3
 aws_lambda_powertools

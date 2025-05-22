@@ -16,7 +16,7 @@ def lambda_handler(event, context):
     try:
         # print(f"Event Type: {event_type}")
         # get menu based on event_type
-        db = resource('dynamodb')
+        db = resource('dynamodb', region_name='us-east-1')
         menu_table = db.Table('cloud9-takeaway')
         response = menu_table.query(
             KeyConditionExpression=boto3.dynamodb.conditions.Key('event_type').eq(event_type)
