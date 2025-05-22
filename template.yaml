@@ -1,13 +1,39 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: SAM template for Menu->Get service
+Description: SAM template for Menu_Get service
 
 Resources:
+  GetMenuFunctionExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: GetMenuFuncExecRole
+      Description: Execution role for Menu_Get svc
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+          Action:
+          - 'sts:AssumeRole'
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+      - arn:aws:iam::aws:policy/AmazonS3FullAccess
+      - arn:aws:iam::aws:policy/AmazonSNSFullAccess
+      - arn:aws:iam::aws:policy/AmazonSQSFullAccess
+      - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
+      Tags:
+      - Owner: True
+      - Team: Dev
+
   TakeawayApi:
     Type: AWS::Serverless::Api
     Properties:
       Name: TakeawayApi
       StageName: Dev
+      EndpointConfiguration:
+        Types: REGIONAL
 
   GetMenuFunction:
     Type: AWS::Serverless::Function
@@ -16,7 +42,7 @@ Resources:
       Handler: app.lambda_handler
       Runtime: python3.11
       CodeUri: src/
-      Role: arn:aws:iam::691685274845:role/LambdaCustomExecutionRole
+      Role: !GetAtt GetMenuFunctionExecutionRole.Arn
       Events:
         GetMenuApi:
           Type: Api
