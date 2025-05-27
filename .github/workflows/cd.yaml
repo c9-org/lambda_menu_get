@@ -59,7 +59,7 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::${{ secrets[format('AWS_ACCOUNT_ID_${{ env.ENVIRONMENT_UPPER }}')] }}:role/GitHubActionsDeployRole
         role-session-name: menu-get-svc-${{ env.ENVIRONMENT }}-session
-        aws-region: $REGION_US_EAST1
+        aws-region: us-east-1
 
     - name: Build app
       run: |
