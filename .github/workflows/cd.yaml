@@ -84,9 +84,8 @@ jobs:
     - name: Deploy the app
       run: |
         sam deploy \
-          --guided \
           --stack-name ${{ env.STACK_NAME }}-${{ env.ENVIRONMENT }}
-          --role-arn arn:aws:iam::${{ env.ACCOUNT_ID }}:role/GitHubActionsDeployRole \
+          --role-arn arn:aws:iam:${{ env.ACCOUNT_ID }}:role/GitHubActionsDeployRole \
           --resolve-s3 \
           --no-progressbar
       
