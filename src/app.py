@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     if not event_type:
         return {
             'statusCode': 400,
-            'body': 'Bad request. Event Type is required v5.'
+            'body': 'Bad request. Event Type is required.'
         }
 
     try:
