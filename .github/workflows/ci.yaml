@@ -28,8 +28,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Lint the code
-      run: |
-        pylint ./unit
+      run: pylint ./tests/unit
 
     - name: Run the tests
-      run: pytest ./unit
+      run: pytest ./tests/unit
