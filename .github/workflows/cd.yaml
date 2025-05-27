@@ -87,5 +87,5 @@ jobs:
           --no-progressbar \
           --resolve-s3 \
           --role-arn arn:aws:iam::${{ secrets[format('AWS_ACCOUNT_ID_${{ env.ENVIRONMENT_UPPER }}')] }}:role/GitHubActionsDeployRole \
-          --stack-name $STACK_NAME-${{ env.ENVIRONMENT }}
+          --stack-name ${{ env.STACK_NAME }}-${{ env.ENVIRONMENT }}
       
