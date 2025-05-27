@@ -19,6 +19,7 @@ on:
 
 env:
   STACK_NAME: MenuGetStack
+  REGION_US_EAST1: us-east-1
 
 concurrency:
   group: deploy-${{ github.ref }}
@@ -46,19 +47,19 @@ jobs:
         use-installer: true
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Dtermine target environment
+    - name: Determine target environment
       id: set-env
       run: |
         ENVIRONMENT=${{ github.event.inputs.environment || 'dev' }}
         echo "ENVIRONMENT=${ENVIRONMENT}" >> $
-        echo "ENVIRONMENT_UPPER=$(echo $ENVIRONMENT | tr '[:lower]' '[:upper]')" >> $GITHUB_ENV
+        echo "ENVIRONMENT_UPPER=$(echo $ENVIRONMENT | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
 
     - name: Configure AWS credentials using OIDC token
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-aasume: arn:aws:iam::${{ secrets[format('AWS_ACCOUNT_ID_${{ env.ENVIRONMENT_UPPER }}')] }}:role/GitHubActionsDeployRole
-        role-session-name: menu-get-svc-dev-session
-        aws-region: us-east-1
+        role-session-name: menu-get-svc-${{ env.ENVIRONMENT }}-session
+        aws-region: $REGION_US_EAST1
 
     - name: Build app
       run: |
