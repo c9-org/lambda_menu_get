@@ -20,7 +20,7 @@ jobs:
     - name: Setup python
       uses: actions/setup-python@v5
       with:
-        python_version: '3.11'
+        python-version: '3.11'
     
     - name: Install dependencies for unit testing
       run: |
