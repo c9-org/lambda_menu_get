@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    permisions:
+    permissions:
       id-token: write
       contents: read
 
