@@ -33,7 +33,7 @@ jobs:
     environment: ${{ github.event.inputs.environment || 'dev' }}
     if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
 
-    permisions:
+    permissions:
       id-token: write
       contents: read
 
@@ -57,7 +57,7 @@ jobs:
     - name: Configure AWS credentials using OIDC token
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-aasume: arn:aws:iam::${{ secrets[format('AWS_ACCOUNT_ID_${{ env.ENVIRONMENT_UPPER }}')] }}:role/GitHubActionsDeployRole
+        role-to-assume: arn:aws:iam::${{ secrets[format('AWS_ACCOUNT_ID_${{ env.ENVIRONMENT_UPPER }}')] }}:role/GitHubActionsDeployRole
         role-session-name: menu-get-svc-${{ env.ENVIRONMENT }}-session
         aws-region: $REGION_US_EAST1
 
