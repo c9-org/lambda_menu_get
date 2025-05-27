@@ -33,7 +33,7 @@ jobs:
     environment: ${{ github.event.inputs.environment || 'dev' }}
     if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
 
-    permisions:
+    permissions:
       id-token: write
       contents: read
 
