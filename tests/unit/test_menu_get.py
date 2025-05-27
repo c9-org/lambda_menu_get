@@ -8,7 +8,7 @@ from src.app import lambda_handler
 
 @pytest.fixture()
 def apigw_event() ->  APIGatewayProxyEvent:
-    with open("../events/unit-test-event.json", encoding='utf-8') as f:
+    with open("../../events/unit-test-event.json", encoding='utf-8') as f:
         return APIGatewayProxyEvent(json.load(f))
 
 @mock_aws
