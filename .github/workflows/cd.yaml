@@ -51,7 +51,7 @@ jobs:
       id: set-env
       run: |
         ENVIRONMENT=${{ github.event.inputs.environment || 'dev' }}
-        echo "ENVIRONMENT=${ENVIRONMENT}" >> $
+        echo "ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
         echo "ENVIRONMENT_UPPER=$(echo $ENVIRONMENT | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
 
     - name: Extract AWS Account ID from Secret
