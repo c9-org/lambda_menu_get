@@ -78,13 +78,14 @@ jobs:
         aws-region: ${{ env.REGION_US_EAST1 }}
 
     - name: Build app
-      run: |
-        sam build --template-file template.yaml
+      run: sam build
 
     - name: Deploy the app
       run: |
         sam deploy \
           --stack-name ${{ env.STACK_NAME }}-${{ env.ENVIRONMENT }} \
+          --region ${{ env.REGION_US_EAST1 }} \
+          --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
           --role-arn arn:aws:iam::${{ env.ACCOUNT_ID }}:role/GitHubActionsDeployRole \
           --resolve-s3 \
           --no-progressbar
