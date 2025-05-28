@@ -63,7 +63,7 @@ jobs:
       id: account
       run: |
         case "$ENVIRONMENT" in
-          dev) echo "ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_DEV }}" >> $GITHUB_ENV ;;
+          dev) echo "ACCOUNT_ID=${{ vars.AWS_ACCOUNT_ID_DEV }}" >> $GITHUB_ENV ;;
           test) echo "ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_TEST }}" >> $GITHUB_ENV ;;
           staging) echo "ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_STAGING }}" >> $GITHUB_ENV ;;
           uat) echo "ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_UAT }}" >> $GITHUB_ENV ;;
