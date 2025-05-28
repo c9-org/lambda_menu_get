@@ -30,7 +30,8 @@ Resources:
       Name: TakeawayApi
       StageName: Dev
       EndpointConfiguration:
-        Types: REGIONAL
+        Types:
+        - REGIONAL
 
   GetMenuFunction:
     Type: AWS::Serverless::Function
