@@ -77,7 +77,6 @@ jobs:
         role-to-assume: arn:aws:iam::${{ env.ACCOUNT_ID }}:role/GitHubActionsDeployRole
         role-session-name: menu-get-svc-${{ env.ENVIRONMENT }}-session
         aws-region: ${{ env.REGION_US_EAST1 }}
-      run: echo "Account ID - ${{ env.ACCOUNT_ID }}"
 
     - name: Build app
       run: sam build
