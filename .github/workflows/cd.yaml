@@ -69,7 +69,6 @@ jobs:
           uat) echo "ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_UAT }}" >> $GITHUB_ENV ;;
           prod) echo "ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID_PROD }}" >> $GITHUB_ENV ;;
         esac
-        echo "Account ID - ${{ env.ACCOUNT_ID }}"
 
     - name: Configure AWS credentials using OIDC token
       uses: aws-actions/configure-aws-credentials@v4
@@ -79,7 +78,9 @@ jobs:
         aws-region: ${{ env.REGION_US_EAST1 }}
 
     - name: Build app
-      run: sam build
+      run: |
+        echo "Account ID - ${{ env.ACCOUNT_ID }}"
+        sam build
 
     - name: Deploy the app
       run: |
