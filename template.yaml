@@ -23,9 +23,6 @@ Resources:
       - arn:aws:iam::aws:policy/AmazonSNSFullAccess
       - arn:aws:iam::aws:policy/AmazonSQSFullAccess
       - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
-      Tags:
-      - Owner: True
-      - Team: Dev
 
   TakeawayApi:
     Type: AWS::Serverless::Api
