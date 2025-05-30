@@ -6,4 +6,4 @@ properties:
   owner: c9-org
   runtime: Python
   repo: https://github.com/c9-org/lambda_menu_get
-  slack-channel: lambda_menu_get-alerts
+  slack-channel: lambda_menu_get_alerts
