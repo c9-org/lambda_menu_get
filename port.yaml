@@ -1,0 +1,9 @@
+apiVersion: v0.1
+identifier: lambda_menu_get
+title: lambda_menu_get
+blueprint: Microservice
+properties: 
+  owner: c9-org
+  runtime: Python
+  repo: https://github.com/c9-org/lambda_menu_get
+  slack-channel: lambda_menu_get-alerts

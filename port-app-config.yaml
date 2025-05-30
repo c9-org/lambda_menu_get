@@ -1,0 +1,14 @@
+resources:
+  - kind: repository
+    selector:
+      query: "true" # JQ boolean query. If evaluated to false - skip syncing the object.
+    port:
+      entity:
+        mappings:
+          identifier: ".name" # The Entity identifier will be the repository name.
+          title: ".name"
+          blueprint: '"Microservice"'
+          properties:
+            readme: file://README.md # fetching the README.md file that is within the root folder of the repository and ingesting its contents as a markdown property
+            url: .html_url
+            defaultBranch: .default_branch

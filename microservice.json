@@ -1,0 +1,27 @@
+{
+  "identifier": "Microservice",
+  "title": "lambda_menu_get repository",
+  "icon": "Microservice",
+  "schema": {
+    "properties": {
+      "readme": {
+        "title": "README",
+        "type": "string",
+        "format": "markdown"
+      },
+      "url": {
+        "title": "https://github.com/c9-org/lambda_menu_get",
+        "type": "string",
+        "format": "url"
+      },
+      "defaultBranch": {
+        "title": "main",
+        "type": "string"
+      }
+    },
+    "required": []
+  },
+  "mirrorProperties": {},
+  "calculationProperties": {},
+  "relations": {}
+}

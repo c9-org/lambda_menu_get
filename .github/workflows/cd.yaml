@@ -5,7 +5,7 @@ on:
     branches:
     - main
     paths-ignore:
-    - 'port**.yaml'
+    - 'port*.yaml'
     - 'microservice.json'
   workflow_dispatch:
     inputs:
