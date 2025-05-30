@@ -2,7 +2,7 @@
   title: Menu_Get Service
   team: ["dev"]
   icon: DefaultBlueprint
-  blueprint: Microservice
+  blueprint: service
   properties:
     readme: README.md
     url: https://github.com/c9-org/lambda_menu_get

@@ -1,6 +1,6 @@
 {
-  "identifier": "Microservice",
-  "title": "lambda_menu_get repository",
+  "identifier": "service",
+  "title": "Menu_Get Service",
   "icon": "Microservice",
   "schema": {
     "properties": {
