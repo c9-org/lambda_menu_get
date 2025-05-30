@@ -4,6 +4,9 @@ on:
   push:
     branches:
     - main
+    paths-ignore:
+    - 'port**.yaml'
+    - 'microservice.json'
   workflow_dispatch:
     inputs:
       environment:
